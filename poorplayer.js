@@ -1,4 +1,3 @@
-
 var MyRadioPlayer=function()
 {
 
@@ -90,7 +89,6 @@ var MyRadioPlayer=function()
 	}
 	
 	
-	
 	this._DrawVolumeBars=function()
 	{
 		var x = Number(this.skin_attr('volume','x'));
@@ -161,9 +159,6 @@ var MyRadioPlayer=function()
 		
 		this.skin_img_folder_url = path + '/' + this.skin_attr('ffmp3-skin','folder')+'/';
 		
-		//alert(this.skin_img_folder_url+this.skin_data.getElementsByTagName('bg')[0].getAttribute('image'));
-		
-		//this.player_div = document.createElement('<div class="my-player"><img class="my-player-bg" src="'+this.skin_img_folder_url+this.skin_data.getElementsByTagName('bg')[0].getAttribute('image')+'" /></div>');
 		
 		this.player_div = document.createElement('div');
 		this.player_div.className = 'my-player';
@@ -176,8 +171,7 @@ var MyRadioPlayer=function()
 		
 		this.player_div.appendChild(this.bg_img);
 		
-		/// buttons
-		////////////////////////////////////
+
 		// play button
 		this.play_button_node = this.new_node('img', this.skin_attr('play','x'), this.skin_attr('play','y'));
 		this.play_button_node.src = this.skin_img_folder_url + this.skin_attr('play','image');
@@ -195,12 +189,10 @@ var MyRadioPlayer=function()
 			};
 		
 		this.play_button_node.onmousedown = function(){
-				//alert(this.src);
 				this.src = this.playerInstance.skin_img_folder_url + this.playerInstance.skin_attr('play','clickimage');
 			};
 
 		this.play_button_node.onmouseup = function(){
-				//alert(this.src);
 				this.src = this.playerInstance.skin_img_folder_url + this.playerInstance.skin_attr('play','image');
 			};
 			
@@ -219,7 +211,6 @@ var MyRadioPlayer=function()
 		this.stop_button_node.style.opacity = '0.0';
 		
 		
-		
 		this.stop_button_node.playerInstance = this;
 		
 		this.stop_button_node.onmouseover = function(){
@@ -231,12 +222,10 @@ var MyRadioPlayer=function()
 			};
 		
 		this.stop_button_node.onmousedown = function(){
-				//alert(this.src);
 				this.src = this.playerInstance.skin_img_folder_url + this.playerInstance.skin_attr('stop','clickimage');
 			};
 
 		this.stop_button_node.onmouseup = function(){
-				//alert(this.src);
 				this.src = this.playerInstance.skin_img_folder_url + this.playerInstance.skin_attr('stop','image');
 			};
 		
@@ -280,26 +269,16 @@ var MyRadioPlayer=function()
 		
 		this.player_div.appendChild(this.text_node);
 		
-		
-		
-		//////////////////////
-		
+
 		
 		this._DrawVolumeBars();
-		
-		
-		
+
 		this.parent.appendChild(this.player_div);
-		//alert(this.skin_img_folder_url);
-		
 	}
 	
 	this.SetSkinXML=function(xml)
 	{
-		//alert(xml);
-		//alert(JSON.stringify(this));
-		this.skin_data=xml; //$.parseXML(xml);
-		
+		this.skin_data=xml;
 		this.Render();
 	}
 	
@@ -309,11 +288,8 @@ var MyRadioPlayer=function()
 		$.get(url, $.proxy(this.SetSkinXML, this));
 	}
 	
-	
-	
 	this.SetRadioUrl=function(url, start_play)
 	{
-	
 		this.radio_url = url;
 		
 		this.audioPlay = new Audio(url);
@@ -324,27 +300,17 @@ var MyRadioPlayer=function()
 	this.Stop=function()
 	{
 		this.audioPlay.pause();
-		//this.audioPlay = null;
 		this.ShowMessage('stop');
 	}
 	
 	this.Play=function()
 	{
-		/*if(this.audioPlay != null)
-		{
-			this.audioPlay.pause();
-		}
-	
-		this.audioPlay = new Audio(this.radio_url);
-		this.audioPlay.volume=this.volume; // default
-		*/
 		this.audioPlay.play();
 		this.ShowMessage('play');
 	}
 
 	this.SetVolume=function(v)
 	{
-		//alert(v);
 		this.volume = v;
 		
 		if(this.audioPlay != null) this.audioPlay.volume=this.volume;
@@ -361,12 +327,11 @@ var MyRadioPlayer=function()
 	this.RenderTo=function(node)
 	{
 		this.parent=node;
-		
 	}
 	
 	this.IsPlaying=function()
 	{
-		return !(this.audioPlay == null || this.audioPlay.muted); /////////////////////////////////////
+		return !(this.audioPlay == null || this.audioPlay.muted); 
 	}
 	
 	this.Setup = function(node, skin, url)
