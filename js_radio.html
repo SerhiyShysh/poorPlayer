@@ -1,0 +1,34 @@
+<html>
+
+
+<head>
+	<meta charset="utf8"/>
+	<title>Use 'muses' skins in html5 player</title>
+</head>
+
+<body>
+
+<script type="text/javascript" src="jquery.js"></script>
+
+
+<script type="text/javascript" src="poorplayer.js"></script>
+
+
+<div id="html5player">
+my player
+</div>
+
+<div id="i1"></div>
+
+
+<script>
+	var a1 = new MyRadioPlayer();
+	a1.Setup(document.getElementById('i1'),  
+				'skins/black-green.xml',
+				'http://jay.krivanek.org:8000/xrm-ele.opus');
+				
+
+</script>
+
+</body>
+</html>
