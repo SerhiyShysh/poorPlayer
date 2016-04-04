@@ -61,6 +61,10 @@ var MyRadioPlayer=function()
 	{
 
 		var tn = this.parent.getElementsByClassName('my-player-text')[0];
+		clearTimeout(tn.timeout);
+		tn.timeout = setTimeout( function(){
+				tn.innerHTML = '';
+			} ,3000);
 		tn.innerHTML = msg;
 	}
 	
