@@ -10,14 +10,26 @@
 
 <body>
 
+mode="bars"
 <div id="i1"></div>
 
+<br>
+mode="holder"
+<div id="i2"></div>
 
 <script>
 	var a1 = new MyRadioPlayer();
 	a1.Setup(document.getElementById('i1'),  
 				'skins/black-green.xml',
 				'http://jay.krivanek.org:8000/xrm-ele.opus');
+
+				
+	var a2 = new MyRadioPlayer();
+	a2.Setup(document.getElementById('i2'),  
+				'skins/black-green-holder.xml',
+				'http://jay.krivanek.org:8000/xrm-ele.opus');
+				
+				
 </script>
 
 </body>

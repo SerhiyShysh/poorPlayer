@@ -86,9 +86,10 @@ var MyRadioPlayer=function()
 				}
 			}
 		}
-		else
+		else // if mode=="holder"
 		{
-			this.parent.getElementsByClassName('my-player-volume-holder')[0].style.left = this.vol_x+this.vol_width*this.GetVolume()+'px';
+			var img = this.parent.getElementsByClassName('my-player-volume-holder')[0];
+			img.style.left = this.vol_x  - img.clientWidth/2  +   this.vol_width*this.GetVolume()+'px';
 		}
 	}
 	
@@ -134,9 +135,16 @@ var MyRadioPlayer=function()
 		{
 			var left = x + w*this.GetVolume();
 			
-			var el = this.new_node('img', left, y);
+			var el = this.new_node('img', left, y + h/2);
 			el.className = 'my-player-volume-holder';
 			el.src = this.skin_img_folder_url + this.skin_attr('volume','holderImage');
+
+			//adjust holder position
+			el.onload = function(){
+					this.style.top = this.offsetTop - this.clientHeight/2 + 'px';
+					this.style.left = this.offsetLeft - this.clientWidth/2 + 'px';
+				};
+			
 			this.player_div.appendChild(el);
 		}
 			

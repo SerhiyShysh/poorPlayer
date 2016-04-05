@@ -1,8 +1,8 @@
-<ffmp3-skin folder="black-green">
+<ffmp3-skin folder="black-green-holder">
   <bg image="bg.png" x="0" y="0" ></bg>
   <play image="play.png" x="2" y="13" clickimage="playclick.png" />
   <stop image="stop.png" x="2" y="38" clickimage="stopclick.png" />
   <text x="39" y="39" width="85" height="20" color="#88FF88" font="Verdana" size="8" />
-  <volume x="39" y="3" width="85" height="34" colOr1="green" color2="gray" barwidth="1" barStep="2" mode="bars" />
+  <volume x="47" y="3" width="75" height="34" mode="holder" holderImage="holder.png" />
   <status imagePlay="statusplay.png" imageStop="statusstop.png" x="2" y="2" />
 </ffmp3-skin>
